@@ -1,0 +1,71 @@
+html{
+      box-sizing: border-box;
+      font-size: large;
+      font-family: monospace;
+      text-align: center;
+}
+*,*after, *before{
+      box-sizing: inherit;
+}
+body{
+      margin: 0;
+      overflow-x: hidden;
+}
+img{
+      max-width: 100%;
+      height: auto;
+}
+.header{
+      position: sticky;
+}
+.header >*{
+      margin: 1.5rem auto;
+      
+}
+.error{
+      padding: 1rem;
+      text-align: center;
+      font-size: x-large;
+      color: antiquewhite;
+      background: red;
+}
+.Loader{
+      
+      border-radius: 50%;
+}
+.Form_search{
+      margin: auto;
+      text-align: center;
+}
+.Form_search input{
+      display: block;
+      margin: auto;
+      padding: .30rem;
+      border-radius: 25%;
+}
+.Post_Card{
+      margin: 1rem auto;
+      padding: 1rem;
+      width: 85%;
+      background-color: rgba(116, 114, 114, 0.8);
+      border-radius: 15px;
+}
+.Post_Card p{
+      display: flex;
+      justify-content: space-between;
+}
+.Grid_Fluid{
+      display: grid;
+      max-width: 90%;
+      margin: 1rem auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+}
+
+.post-site{
+      margin: 1rem auto;
+      padding: 1rem;
+      width: 90%;
+      background-color:rgba(116, 114, 114, 0.8) ;
+      text-align: left;
+}
