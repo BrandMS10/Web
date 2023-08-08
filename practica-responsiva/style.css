@@ -1,0 +1,140 @@
+:root{
+  --primary-color: rgb(10, 130, 177);
+  --secondary-color: rgb(72, 203, 255);
+  --fondo-claro: rgba(252, 252, 252, 0.734);
+  --fondo-oscuro: rgba(0,0,0, .8);
+  --bordes-oscuros: rgba(0,0,0, .8);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.container{
+  display: flex;
+  width: max-content;
+  flex-direction: column;
+}
+.subContainer{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  flex-direction: row;
+}
+.subContaine{
+  display: flex;
+  width: 50%;
+  padding: 15px;
+  border-left: 15px;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  box-shadow: -10px 10px 60px 10px #ADB7C4;
+}
+.subContaine img{
+  display: flex;
+  width: 100%;
+  border-radius: 9px;
+  border-top-left-radius: 45%;
+}
+.subContainer .datos{
+  display: grid;
+  width: 40%;
+  height: 300px;
+  margin: 20px;
+  padding: 15px;
+  align-self:center;
+  justify-items: start;
+  grid-template-rows: repeat(4, .5fr);
+  grid-template-columns: repeat(2, .5fr);
+  grid-template-areas:  "m    m"
+                        "nm   nm"
+                        "num  num"
+                        "fa   fv";
+  box-shadow: -10px 10px 60px 10px #ADB7C4;
+  background: rgba(90,116,148,0.1);
+}
+.datos .m{
+  grid-area: m;
+}
+.datos .nm{
+  grid-area: nm;
+}
+.datos .cardNum{  
+  grid-area: num;
+}
+.datos .date .datepara{
+  grid-area: fa;
+}
+.datos .ccv .cvv2{
+  grid-area: fv;
+}
+.subContainer .date .datepara::before {
+  content: "Fecha de Alta: ";
+  color: rgba(90,116,148, 1);
+}
+.subContainer .cvv2::before {
+  content: "Fecha de Vencimiento : ";
+  color: rgba(90,116,148, 1);
+}
+.subContainer .datos .ccv p, .subContainer .date p ,.subContainer .cvv2{
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+  text-align: center;
+}
+.subContainer .datos  li{
+  list-style: none;
+  text-align: right;
+  color:  #515860;
+  font-family: "Roboto", sans-serif;
+}
+button{
+  margin-top: 40px;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  font-family: "Open Sans", sans-serif;
+  background: #00B74F;
+  color: #FFF;
+  border: 1px solid #FFF;
+  font-size: medium;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.97rem;
+  opacity: 1;
+  font-weight: lighter;
+  padding: 7px;
+  border-radius: 1.6rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s linear;
+}
+button:hover {
+  transition: all 0.2s linear;
+  background: rgba(0, 183, 79, 0.3);
+  color: #00B74F;
+  opacity: 1;
+}
+@media screen and (max-width:500px){
+  .subContainer{
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+  } 
+  .subContaine{
+    width: 70%;
+    align-self: center;
+  } 
+  .subContainer .datos{
+    margin-top: 60px;
+    width: 70%;
+  }
+  
+}
