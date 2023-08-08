@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--Brand MS-->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Calculadora con javascript</title>
+      <style>
+            *{
+                  margin: 0%;
+                  padding: 0%;
+                  box-sizing: border-box;
+            }
+            .container{
+                  display: flex;
+                  width: 90%;
+                  background: black;
+                  margin: 0 auto;
+                  padding: 15px;
+                  flex-direction: column;
+            }
+            .inputs{
+                  display: flex;
+                  width: 100%;
+                  flex-direction: row;
+                  justify-content: space-between;
+            }
+            .inputs input{
+                  width: 50%;
+                  height: 50px;
+                  text-align: center;
+                  font-weight: 600;
+                  color: black;
+            }
+            .btns{
+                  display: flex;
+                  width: 100%;
+                  flex-direction: row;
+                  justify-content: space-around;
+
+            }
+            .btns button{
+                  width: 25%;
+                  height: 50px;
+                  margin: 5px;
+                  cursor: pointer;
+                  text-transform: uppercase;
+                  background: gray;
+                  color: aliceblue;
+                  transition: all .5s;
+            }
+            .btns button:hover{
+                  background: black;
+            }
+            .result{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  width: 80%;
+                  height: 50px;
+            }
+            .result p{
+                  color: blue;
+                  font-size: larger;
+            }
+
+      </style>
+</head>
+<body>
+      <div class="container">
+            <div class="inputs" id="inputs">
+                  <input type="number" id="n1">
+                  <input type="number" id="n2">
+            </div>
+            <div id="btns" class="btns">
+                  <button id="sum">Sumar</button>
+                  <button id="res">Restar</button>
+                  <button id="mul">Multiplicar</button>
+                  <button id="div">Dividir</button>
+            </div>
+            <div class="result">
+                  <p id="resultado">=</p>
+            </div>
+      </div>
+<script type="text/javascript ">
+      var operaciones = function(e) {
+            var n1 = parseFloat(document.getElementById("n1").value);
+            var n2 = parseFloat(document.getElementById("n2").value);
+            var result = document.getElementById("resultado");
+            var op = e.target.id;
+            
+            if(op == "sum"){
+                  resultado = n1 + n2;
+            }
+            else if(op == "res"){
+                  resultado = n1 - n2;
+            }
+            else if(op == "mul"){
+                  resultado = n1 * n2;
+            }
+            else if(op == "div"){
+                  resultado = n1 / n2;
+            }
+
+            result.innerHTML = resultado;
+
+      }
+
+      var botones = document.getElementById("btns");
+      botones.addEventListener("click", operaciones);
+      
+</script>
+</body>
+</html>

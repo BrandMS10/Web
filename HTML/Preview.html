@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="../HTML/imgs/links.png">
+      <link rel="stylesheet" href="../lib/fontawesome/css/all.min.css">
+      <link rel="stylesheet" href="../CSS/Preview.css">
+      <title>Preview</title>
+</head>
+<body>
+      <header class="titulo">
+            <h1>Prueba con tu información!</h1>
+      </header>
+      <section class="containerP">
+            <form class="Datos">
+                  <label for="Nombre">Nombre</label>
+                  <input type="text" class="form__input" name="Nombre" id="Nombre" placeholder="Escibr tu nombre">
+                  <label for="Descrip">Breve descripción</label>
+                  <input type="text" class="form__input" name="Descrip" id="Descrip" placeholder="Escribe algo sobre tí"><br>
+                  <button type="submit" class="btn__probar" id="btn__probar" value="submit">Probar <span class="fas fa-hand-point-down"></span></button>
+            </form>
+            <div class="Prev">
+                  <div class="profile" id="profile">
+                        <img src="../HTML/imgs/usr.png" alt="usuario">
+                        <p class="name" id="name"><b>Your Name is here</b></p>
+                        <p class="description" id="description">Little description</p>
+                  </div>
+            </div>
+      </section>
+      
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script>
+
+            const $form = document.querySelector(".Datos"),
+            $profile = document.getElementById("profile"),
+            $fragment = document.createDocumentFragment();
+
+            const getAll = async ()=>{
+                  try{
+                        let res = await axios.get("http://localhost:5000/users"),
+                        json = await res.data;
+                        console.log(json);
+                        json.forEach(el => {
+                              $profile.querySelector(".name").textContent = el.name;
+                              $profile.querySelector(".description").textContent = el.descripcion;
+                              // $profile.querySelector(".btn__probar").dataset.id = el.id;
+                              let $clone = document.importNode($profile,true);
+                              $fragment.appendChild($clone); 
+                        });
+                  }catch (err){
+                        let message = err.statusText || "Ocurrio un error";
+                        $form.insertAdjacentHTML("afterend",`<p style="color: red;"><b>Error ${err.status}: ${message}</b></p>`);
+                  }
+
+            }
+
+            document.addEventListener("DOMContentLoaded",getAll);
+      </script>
+      
+</body>
+</html>

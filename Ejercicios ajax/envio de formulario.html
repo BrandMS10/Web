@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--Brand MS-->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Envianos tus datos fetch</title>
+      <style>
+            *{
+                  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            form{
+                  margin: auto;
+                  margin-top: 50px;
+                  padding: 20px;
+                  border: 20px solid black;
+                  background-color: rgb(59, 59, 59);
+                  width: 50%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+            }
+            .two_colums{
+                  display: flex;
+                  justify-content: space-around;
+            }
+            .field{
+                  display: flex;
+                  flex-direction: column;
+            }
+            label{
+                  margin-bottom: 10px;
+                  margin-top: 10px;
+                  text-transform: uppercase;
+                  color: aliceblue;
+                  font-size: 14px;
+            }
+            input, textarea{
+                  background: transparent;
+                  border: none;
+                  border-bottom: 2px solid aliceblue;
+                  color: aliceblue;
+                  resize: none;
+                  height: auto;
+            }
+            input:hover, textarea:hover{
+                  border-bottom: 2px solid rgb(0, 0, 0);
+            }
+            input:focus, textarea:focus{
+                  outline: none;
+                  border-bottom: 2px solid black;
+            }
+            #Coment{
+                  width: 81%;
+                  height: auto;
+                  margin: auto;
+            }
+            .Coment{
+                  margin: auto;
+                  padding-top: 30px;
+            }
+            .btn_send{
+                  display: flex;
+                  justify-content: center;
+                  padding-top: 30px;
+                  border: none;
+                  color: aliceblue;
+            }
+            .btn_send input{
+                  padding: 15px 40px;
+                  border: none;
+                  color: aliceblue;
+                  background: black;
+                  text-transform: uppercase;
+                  cursor: pointer;
+                  transition: .5s;
+            }
+            .btn_send input:hover{
+                  border: 2px solid aliceblue;
+                  padding: 15px 70px;
+                  border-radius: 20px;
+            }
+            .field_terms{
+                  display: flex;
+                  justify-content: center;
+                  margin-top: 20px;
+            }
+            .form__message-g{
+                  display: none;
+                  color: royalblue;
+                  text-align: center;
+            }
+            .form__message-g-active{
+                  display: block;
+            }
+
+
+      </style>
+</head>
+<body>
+      <form class="formu" id="formu" name="formu">
+            <div class="two_colums">
+                  <div class="field">
+                        <label for="Name">Nombre</label>
+                        <input type="text" id="Name" name="Name" maxlength="15" required="required" autocomplete="off" >
+                  </div>
+                  <div class="field">
+                        <label for="Lastname">Apellido</label>
+                        <input type="text" id="Lastname" name="Lastname" maxlength="15" required="required" autocomplete="off">
+                  </div>
+            </div>
+            <div class="two_colums">
+                  <div class="field">
+                        <label for="Phone">Telefono</label>
+                        <input type="tel" id="Phone" name="Phone" maxlength="12" required="required" autocomplete="off">
+                  </div>
+                  <div class="field">
+                        <label for="Email">Correo</label>
+                        <input type="email" id="Correo" name="Email" required="required" autocomplete="off">
+                  </div>
+            </div>
+            <div class="field">
+                  <label for="Coment" class="Coment">Comentarios</label>
+                  <textarea name="Coment" id="Coment"></textarea>
+            </div>
+            <div class="field_terms">
+                  <label for="term">Acepto Terminos y condiciones</label>
+                  <input type="checkbox" name="term" required="required" id="term">
+            </div>
+            <div class="btn_send">
+                  <input type="submit" name="enviar" id="btn_send">
+            </div>      
+            <p class="form__message-g" id="form__message-g">Enviado</p>
+
+      </form>
+
+      <script>
+            const formulario = document.getElementById('formu');
+            const inputs = document.querySelectorAll('#formu input');
+            const response = document.getElementById('form__message-g');
+
+            formulario.addEventListener("submit", (e)=>{
+                  e.preventDefault();
+                  fetch("https://formsubmit.co/ajax/mapej94321@orgria.com",{
+                        method: "POST",
+                        body: new FormData(e.target)
+                  })
+                        .then(res=>res.ok ? res.json():Promise.reject(res))
+                        .then(json=>{
+                              console.log(json);
+                              document.getElementById("form__message-g").classList.add("form__message-g-active");
+                              setTimeout(()=>{
+                                    document.getElementById("form__message-g").classList.remove("form__message-g-active");
+                                    formulario.reset();
+                              },4000);
+                        })
+                        .catch(err=>{
+                              console.log(err);
+                              let message = err.statusText || "Ocurrió un error al enviar el formulario, intenta nuevamente";
+                              response.innerHTML = `<p>Error ${err.status}: ${message}</p>`;
+                        })
+                        .finally(()=>{
+                              setTimeout(() => {
+                                    response.innerHTML = "";
+                              }, 4000);
+                        })
+            }); 
+      </script>
+      
+</body>
+</html>

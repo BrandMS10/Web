@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Brand MS -->
+      <meta charset="UTF-8"> <!--Caracteres en formato -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- //compatibilidad con microsoft edge // -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="Description" content="Pagina web de distribucion de contenido"> <!--Descripcion de la pagina-->
+      <title>Brand MS</title>
+      <link rel="stylesheet" href="../CSS/Estilos.css"> <!--Asignacion de archivo para css-->
+</head>
+<body>
+    <header>
+        <h1 class= "H1" id="H1"> Ejemplo de pagina web</h1>  
+        <br> <!--Salto de linea-->
+        <!-- Uso de javascript con id de elementos -->
+        <script>
+            document.getElementById("H1").addEventListener("click", function(){
+                alert("Hola")
+            })
+        </script>
+    </header>
+    <section class="main">
+        <section class="links">    <!--Divisor de contenido div-->
+            <h2>Visita mis paginas </h2>
+            <ul>
+                <!-- target="_blank" target blank para abrir pagina en otra pestaña -->
+                <img src="imgs/fb.png" alt="fb_logo" width="20" height="20" > <li><a href="https://es-la.facebook.com" target="_blank" > Facebook</a></li>
+                <img src="imgs/ig.png" alt="ig_logo" width="20" height="20" > <li><a href="https://www.instagram.com" target="_blank" > Instagram</a></li>
+                <img src="imgs/twt.png" alt="twt_logo" width="20" height="20" > <li><a href="https://twitter.com/?lang=es" target="_blank" > Twitter</a></li>
+                <img src="imgs/yt.png" alt="yt_logo" width="25" height="20"> <li><a href="https://www.youtube.com" target="_blank" > Youtube</a></li>
+            </ul>   
+        </section>
+            <aside class="follow">
+                <br>
+                <h2>Te sigo en Intagram?</h2>
+                <form action="">
+                    <!-- Ingreso de datos con inputs -->
+                    <input type="text" name="UsuarioIG" id="igUsr" placeholder="Ingresa tu usuario" required>
+                    <input type="submit" value="Enviar">
+                </form>
+            </aside>
+            <br>
+    </section>
+
+    <section class="cards">
+        <h2> Image </h2>
+        <a href="#">Link</a>
+    </section>
+    
+    <footer class="visit">
+        <h2> Visitame</h2>
+        <!-- Insercion de paginas en la misma pagina web con iframe -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23742.096069601368!2d-99.07042370784514!3d19.640882445422907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f3e3efed695d%3A0xc7615c1d98f0d468!2sPlaza%20Coacalco!5e0!3m2!1ses!2smx!4v1675794343599!5m2!1ses!2smx" ></iframe>
+    </footer>
+
+
+</body>
+</html>

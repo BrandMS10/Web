@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>APIS WP </title>
+      <style>
+            html{
+                  box-sizing: border-box;
+                  text-align: center;
+                  font-size: large;
+            }
+            *, *:after, *:before{
+                  box-sizing: inherit;
+            }
+            .loader{
+                  display: block;
+                  margin: auto;
+                  width: 10%;
+                  border-radius: 50%;
+            }
+            img{
+                  max-width: 100%;
+                  height: auto;
+            }
+            hr{
+                  border: thin solid green;
+                  margin: 3rem auto;
+                  width: 80%;
+            }
+            .site{
+                  margin: 1rem auto;
+                  padding: 1rem;
+                  max-width: 50%;
+                  text-align: center;
+            }
+            .post{
+                  margin: 1rem auto;
+                  padding: 1rem;
+                  border-radius: .5rem;
+                  max-width: 80%;
+                  background-color: gray;
+            }
+            .post-author img{
+                  border-radius: 50%;
+            }
+            .post-content{
+                  text-align: left;
+            }
+            .post-content>article{
+                  padding: 1rem;
+                  background: white;
+            }
+            .post-content img{
+                  display: block;
+                  margin: auto;
+            }
+      </style>
+</head>
+<body>
+      <h1>Binevenido!</h1>
+      <article class="site" id="site"> </article>
+      <section class="posts" id="posts"> </section>
+      <img class="loader" src="assets/loader.svg" alt="Cargando...">
+      <template id="post-template" class="post-template">
+            <article class="post">
+                  <img class="post-img">
+                  <aside>
+                        <h3 class="post-title"></h3>
+                        <figure class="post-author"></figure>
+                        <small class="post-date"></small>
+                        <a target="_blank" class="post-link">ir a la publicación</a>
+                        <p class="post-excerpt"></p>
+                        <details class="post-content">
+                              <summary>Ver contenido</summary>
+                              <article></article>
+                        </details>
+                  </aside>
+            </article>
+            <hr>
+      </template>
+      <script>
+            const site = document.getElementById("site"),
+            posts = document.getElementById("posts"),
+            loader = document.querySelector(".loader"),
+            template = document.getElementById("post-template").content,
+            fragment = document.createDocumentFragment(),
+            Domain = "https://newsroom.spotify.com",
+            Site = `${Domain}/wp-json`,
+            API = `${Site}/wp/v2`,
+            Post = `${API}/posts?_embed`,
+            Pages = `${API}/pages`;
+
+            let Page = 1, Posts = 10;
+
+             function Get_Datasite() {
+                  fetch(Site).then(res => res.ok ? res.json():Promise.reject(res))
+                  .then(json => {
+                  console.log(json);
+                  site.innerHTML = `
+                  <h3>Sitio Web</h3>
+                  <h2><a href="${json.url}" target="_blank">${json.name}</a></h2>
+                  <p>${json.description}</p>
+                  <p>${json.timezone_string}</p>
+                  `;
+                  })
+                  .catch (err =>{
+                        console.log(err);
+                        let message = err.statusText||"Ocurrio un error"; 
+                        site.innerHTML = `<p>${err.status}: ${message}</p>`;
+                  })       
+             }
+             function Get_Posts() {
+                  loader.style.display = "block";
+                  fetch(`${Post}&page=${Page}&per_page=${Posts}`).then(res => res.ok ? res.json():Promise.reject(res))
+                  .then(json => {
+                  console.log(json);
+                        json.forEach(el => {
+                              template.querySelector(".post-img").src = el._embedded["wp:featuredmedia"][0].source_url;
+                              template.querySelector(".post-title").innerHTML = el.title.rendered;
+                              template.querySelector(".post-author").innerHTML = `  <img src="${el._embedded.author[0].avatar_urls["48"]}" alt="${el._embedded.author[0].name}">
+                                                                                    <figcaption>${el._embedded.author[0].name}</figcaption>`;
+                                                                                    
+                              template.querySelector(".post-date").innerHTML = new Date(el.date).toLocaleDateString();
+                              template.querySelector(".post-link").href = el.link;
+                              template.querySelector(".post-excerpt").innerHTML = el.excerpt.rendered;
+                              template.querySelector(".post-content > article").innerHTML = el.content.rendered;
+                              let clone = document.importNode(template, true);
+                              fragment.appendChild(clone); 
+                        });
+                        posts.appendChild(fragment);
+                        loader.style.display = "none";
+
+                  })
+                  .catch (err =>{
+                        console.log(err);
+                        let message = err.statusText||"Ocurrio un error"; 
+                        posts.innerHTML = `<p>${err.status}: ${message}</p>`;
+                        loader.style.display = "none";
+                  }) 
+             }
+             document.addEventListener("DOMContentLoaded", e =>{
+                  Get_Datasite();
+                  Get_Posts();
+             })
+             window.addEventListener("scroll", e =>{
+                  const {scrollTop, clientHeight, scrollHeight} = document.documentElement;
+                  if (scrollTop + clientHeight >= scrollHeight) {
+                        Page ++;
+                        Get_Posts();
+                  }
+             })
+      </script>
+</body>
+</html>
+

@@ -1,0 +1,78 @@
+*{
+      margin: 0;
+      padding: 0;
+}
+body{
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: black;
+      background: aliceblue;
+}
+
+.grid{
+      width: max-content;
+      max-width: 1000px;
+      margin: 20px auto;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-rows: repeat(4, auto);
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:    "header           header            header"
+                              "contenido        contenido         sidebar"
+                              "widget1          widget2           sidebar"
+                              "footer           footer            footer";
+             
+}
+.grid div, .grid aside, .grid header, .grid footer{
+      background: gray;
+      padding: 10px;
+}
+.grid header{
+      color: rgb(255, 255, 255);
+      grid-area: header;
+}
+.grid .contenido{
+      grid-area: contenido;
+}
+.grid aside{
+      background: black;
+      color: aliceblue;
+      grid-area: sidebar;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.grid .widget{
+      background: royalblue;
+      color: black;
+      
+}
+.grid .w1{
+            grid-area: widget1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+.grid .w2{
+      grid-area: widget2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.grid footer{
+      background: black;
+      color: aliceblue;
+      grid-area: footer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+      .grid {
+            grid-template-areas:    "header           header            header"
+                                    "contenido        contenido         contenido"
+                                    "sidebar          siddebar          sidebar"
+                                    "widget1           widget2          widget2"
+                                    "footer           footer            footer";
+      }
+}

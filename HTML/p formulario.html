@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!-- Brand MS -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Formulario con flexbox</title>
+      <style>
+            *{
+                  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            form{
+                  margin: auto;
+                  margin-top: 50px;
+                  padding: 20px;
+                  border: 20px solid black;
+                  background-color: rgb(59, 59, 59);
+                  width: 50%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+            }
+            .two_colums{
+                  display: flex;
+                  justify-content: space-around;
+            }
+            .field{
+                  display: flex;
+                  flex-direction: column;
+            }
+            label{
+                  margin-bottom: 10px;
+                  margin-top: 10px;
+                  text-transform: uppercase;
+                  color: aliceblue;
+                  font-size: 14px;
+            }
+            input, textarea{
+                  background: transparent;
+                  border: none;
+                  border-bottom: 2px solid aliceblue;
+                  color: aliceblue;
+                  resize: none;
+                  height: auto;
+            }
+            input:hover, textarea:hover{
+                  border-bottom: 2px solid rgb(0, 0, 0);
+            }
+            input:focus, textarea:focus{
+                  outline: none;
+                  border-bottom: 2px solid black;
+            }
+            #Coment{
+                  width: 81%;
+                  margin: auto;
+            }
+            .Coment{
+                  margin: auto;
+                  padding-top: 30px;
+            }
+            .btn_send{
+                  display: flex;
+                  justify-content: center;
+                  padding-top: 30px;
+                  border: none;
+                  color: aliceblue;
+            }
+            button{
+                  padding: 15px 40px;
+                  border: none;
+                  color: aliceblue;
+                  background: black;
+                  text-transform: uppercase;
+                  cursor: pointer;
+                  transition: .5s;
+            }
+            button:hover{
+                  border: 2px solid aliceblue;
+                  padding: 15px 70px;
+                  border-radius: 20px;
+            }
+
+      </style>
+</head>
+<body>
+      <form>
+            <div class="two_colums">
+                  <div class="field">
+                        <label for="Name">Nombre</label>
+                        <input type="text" id="Name" autocomplete="off" >
+                  </div>
+                  <div class="field">
+                        <label for="Lastname">Apellido</label>
+                        <input type="text" id="Lastname" autocomplete="off">
+                  </div>
+            </div>
+            <div class="two_colums">
+                  <div class="field">
+                        <label for="Phone">Telefono</label>
+                        <input type="text" id="Phone" autocomplete="off">
+                  </div>
+                  <div class="field">
+                        <label for="Email">Correo</label>
+                        <input type="email" id="Correo" autocomplete="off">
+                  </div>
+            </div>
+            <div class="field">
+                  <label for="Coment" class="Coment">Comentarios</label>
+                  <textarea name="Coment" id="Coment"></textarea>
+            </div>
+            <div class="btn_send">
+                  <button>Enviar</button>
+            </div>
+
+      </form>
+      
+</body>
+</html>

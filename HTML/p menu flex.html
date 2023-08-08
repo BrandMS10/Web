@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!-- Brand MS -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Menu con flexbox</title>
+      <style>
+            *{
+                  margin: 0px;
+                  padding: 0px;
+                  font-family: fantasy;
+            }
+            header{
+                  padding: 10px 0px;
+                  border-bottom: 2px solid royalblue;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+            }
+            header li{
+                  display: inline-table;
+                  list-style: none;
+                  padding: 0px 15px;
+            }
+            header a{
+                  text-decoration: none;
+                  text-transform: uppercase;
+                  font-size: medium;
+                  color: royalblue;
+                  transition: all .5s;
+            }
+            header a:hover{
+                  color: black;
+            }
+            .logo{
+                  width: 50px;
+                  cursor: pointer;
+            }
+            .btn_iniciar{
+                  background-color: royalblue;
+                  padding: 10px 25px;
+                  border-radius: 30px;
+                  color: aliceblue;
+                  box-shadow: 3px 3px 0px black;
+            }
+
+      </style>
+</head>
+<body>
+      <header>
+            <img class="logo" src="../HTML/imgs/fb.png" alt="logofb">
+            <nav>
+                  <ul>
+                        <li><a href="">Nosotros</a></li>
+                        <li><a href="">Trabajos</a></li>
+                        <li><a href="">Media</a></li>
+                        <li><a href="">Contacto</a></li>
+                  </ul>
+            </nav>
+            <a class="btn_iniciar" href="">INICIAR</a>
+      </header>
+      
+</body>
+</html>

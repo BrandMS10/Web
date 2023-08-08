@@ -1,0 +1,118 @@
+:root{
+      --Texto-claro: rgb(222, 238, 255);
+      --fondo-oscuro: rgba(0, 0, 0, 0.893);
+      --fondo-claro: rgba(53, 26, 95, 0.705);
+}
+*{
+      padding: 0;
+      margin: 0;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+      background: var(--fondo-oscuro);
+}
+.titulo{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: xx-large;
+      color: var(--Texto-claro);
+      text-align: center;
+}
+.containerP{
+      margin-top: 50px;
+      width: 100%;
+      display: inline-block;
+      align-content: center;
+}
+.Datos{
+      width: 100%;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--Texto-claro);
+}
+.Datos label{
+      font-size: larger;
+      padding: 15px;
+}
+.Datos .form__input{
+      border-radius: 10px;
+      width: 30%;
+      padding: 5px;
+      background: transparent;
+      color: var(--Texto-claro);
+}
+.Datos .btn__probar{
+      padding: 5px;
+      width: 10%;
+      font-size: medium;
+      background: transparent;
+      color: var(--Texto-claro);
+      border-radius: 10px;
+      transition: all .3s;
+}
+.Datos .btn__probar:hover{
+      width: 12%;
+      border: 2px solid var(--Texto-claro);
+      cursor: pointer;
+      font-size: large;
+}
+.Prev{
+      width: 100%;
+      margin-top: 50px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--Texto-claro);
+}
+.Prev .profile{
+      width: 85%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 15px;
+      background: linear-gradient(to bottom right, rgb(67, 20, 88), black);
+      border-radius: 20px;
+}
+.profile img{ 
+      width: 15%;
+      border-radius: 50%;
+      box-shadow: 4px 4px 4px white;
+}
+.profile .name{
+      font-size: xx-large;
+      font-family:monospace;
+}
+
+@media screen and (max-width:700px){
+
+      .titulo{
+            font-size: large;
+      }
+
+      .Prev .profile{
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 80%;
+      }
+      .profile img{
+            width: 40%;
+      }
+      .profile .name{
+            font-size: large;
+      }
+      .Prev{
+            padding: 5px;
+            margin-top: 40px;
+      }
+      .Datos .btn__probar, .Datos .form__input{
+            width: 60%;
+      }
+      
+}

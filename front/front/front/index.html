@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cotizador</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/7e5b2d153f.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="logo nav-link">Logo</a>
+        <button class="nav-toggle" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu">
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link nav-menu-link_active">Cotizaciones</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Provedores</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Recursos</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Reportes</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link"
+              >Contacto</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+
+      <div class="container">
+        <h1>Login</h1>
+        <form action="" id="formulario">
+            <div class="form__group form__div" id="group__usr">
+                <span><i class="fa-solid fa-envelope"></i></span>
+                <input class="campo" type="email" placeholder="Correo" id="email" name="email">
+                <p class="group__usr-error">El correo es incorrecto</p>
+            </div>
+            <div class="form__group form__div" id="group__pass">
+                <span><i class="fa-solid fa-lock"></i></span>
+                <input class="campo" type="password" placeholder="Contraseña" id="password" name="password">
+                <p class="group__pass-error">La contraseña debe contener min 4 y max 12 elementos</p>
+            </div>
+            <div class="form__message" id="form__message">
+              <p class="form__message-b" id="form__message-b"><i class="fas fa-exclamation-triangle"><b>Error:</b>Por favor llena los campos</i></p>
+            </div>
+            <div class="form__group">
+                <button type="submit" id="btn_submit">Acceder</button>
+                <button type="submit" id="btn_reg" onclick="register()">Registrarse</button>
+                <p class="form__message-g" id="form__message-g">Enviado</p>
+            </div>
+            <div class="form__group__enlace">
+                <a class="enlace" href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+            
+        </form>
+        <hr>
+        <p>Inicie sesión con su cuenta de redes sociales</p>
+        <div class="div__group">
+            <a class="redes" href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a class="redes" href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </div>
+
+    </main>
+
+    <script type="text/javascript" src="./js/main.js"></script>
+
+  </body>
+</html>

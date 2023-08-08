@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!-- Brand MS -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Practica elementos del DOM</title>
+      <style>
+            .container{
+                  width: 200px;
+                  height: 200px;
+                  background: black;
+                  transition: all .5s;
+            }
+            .cambio{
+                  width: 500px;
+                  height: 500px;
+                  background: royalblue;
+                  transition: all .5s;
+            }
+      </style>
+</head>
+<body>
+      <button onclick="accion();">Cambio</button>
+      <br>
+      <div class="container" id="box"></div>
+      
+</body>
+<script>
+      function accion() {
+            var box = document.getElementById("box");
+            if (box.className == "container"){
+                  box.className = "cambio";
+            }else{
+                  box.className = "container";
+            }
+      }
+</script>
+
+</html>
