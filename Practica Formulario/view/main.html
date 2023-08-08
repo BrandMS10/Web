@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <!--Brand MS-->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="../css/style_form.css">
+      
+
+      <title>Cotizador</title>
+</head>
+<body>
+      <h1><b>Cotizador</b></h1>
+      
+      <div class="container">
+            <form class="formu" id="formu">
+                  <div class="form__group form__div" id="group__client">
+                        <label for="client" class="form__label">Cliente</label><br>
+                        <input class="campo" type="text" placeholder="Nombre del cliente" id="client" name="client">
+                        <p class="group__client-error">Ingresa el cliente</p>
+                  </div>
+                  <div class="form__group form__div" id="group__proveedor">
+                        <label for="proveedor" class="form__label">Proveedor</label><br>
+                        <select id="prove" name="prove" class="form__select">
+                              <option disabled selected>Tipo de Proveedor</option>
+                              <option>Nivel 1</option>
+                              <option>Nivel 2</option>
+                              <option>Nivel 3</option>
+                        </select>
+                  </div>
+                  <div class="form__group form__div" id="group__recurso">
+                        <label for="recurso" class="form__label">Recurso</label><br>
+                        <select id="recu" name="recu" class="form__select">
+                              <option disabled selected>Tipo de Recurso</option>
+                              <option>Clase A</option>
+                              <option>Clase B</option>
+                              <option>Clase C</option>
+                        </select>
+                  </div>
+                  <div class="form__group form__div" id="group__porcent">
+                        <label for="porcent" class="form__label">Porcentaje</label><br>
+                        <input class="campo" type="number" placeholder="Porcentaje" id="porcent" name="porcent">
+                        <p class="group__porcent-error">Ingresa el Porcentaje (0 a 100)</p>
+                  </div>
+                  <div class="form__group">
+                        <button class="btn_submit" type="submit" id="btn_submit">Generar Propuesta</button>
+                        <p class="form__message-g" id="form__message-g">Enviado</p>
+                        <p class="form__message-b" id="form__message-b"><b>Error:</b>Por favor llena los campos</i></p>
+                  </div>
+            </form>
+            <form class="formIn" id="formIn">
+                  <div class="form__group form__group-btn-img">
+                        <p>Añadir Imagen</p>
+				<input type="file" accept="image/*" class="form__btn-img"></input>
+			</div>
+                  <div class="form__group form__group-rfc" id="group__rfc">
+				<input type="text" class="campo-rfc" placeholder="RFC" name="rfc"></input>
+                        <p class="group__rfc-error">Ingresa el RFC correctamente</p>
+			</div>
+                  <div class="form__group form__group-btn-rec" id="btn-recurso">
+				<a href="#"  >Añadir recurso</a>
+			</div>
+                  
+            </form>
+      </div>
+      <div class="modalContainer modal-close" id="modalContainer">
+            <div>
+                 <p class="close">X</p>
+            </div>
+            <h1>Recurso añadido</h1>
+      </div>
+      
+
+      
+
+      <script src="../js/form.js"></script>
+</body>
+</html>
