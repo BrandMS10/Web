@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Brand TV",
+      "descripcion": "Ingeniero y streamer en facebook gaming"
+    },
+    {
+      "id": 2,
+      "name": "Alu Akbar",
+      "descripcion": "Branding topic"
+    },
+    {
+      "id": 3,
+      "name": "Bigotes",
+      "descripcion": "Gato Gamer cool"
+    }
+  ],
+  "clients": [
+    {
+      "id": 11,
+      "name": "Youtuber",
+      "descripcion": "creador de contenido digital"
+    },
+    {
+      "id": 12,
+      "name": "Empresa",
+      "descripcion": "Lider en México de productos electronicos"
+    }
+  ]
+}
